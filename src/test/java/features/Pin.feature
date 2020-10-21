@@ -39,18 +39,14 @@ Feature: Pin change
       | 11111  | Pin must be four characters long                                      |
 
 
-  Scenario Outline: check that can't change pin more that twice a day
-    When Login with pin <expectedPin>
+  Scenario: check that can't change pin more that twice a day
+    When Login with pin 1234
     And Move on "pin change" section
-    When Set the pin to <newPin>
-    And  Click apply button
-    Then Get massage "<getMassage>"
-
-    Examples:
-      | expectedPin | newPin | getMassage                                   |
-      | 1234        | 7777   | Your Pin Successfully changed                |
-      | 7777        | 6666   | Your Pin Successfully changed                |
-      | 6666        | 5555   | Can't change pin more ofter that twice a day |
+    When Change pin 3 times using valid pins
+      | 9999      |
+      | 8888      |
+      | 7777      |
+    Then Get massage "Can't change pin more ofter that twice a day"
 
 
   Scenario Outline: check that account lock after three times wrong pin enter attempts
