@@ -5,6 +5,8 @@ Feature: Pin change
   In order to be able to change it to something they can easily remember, customers with new bank
   cards need to be able to change their PIN using the ATM
 
+# P.S. i don't use Login with pin 1234 in Background because the last scenario outline has logic
+# where we reuse pin enter function
 
   Background:
     Given New credit card issued by the bank with pin 1234
