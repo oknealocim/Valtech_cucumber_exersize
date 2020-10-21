@@ -63,6 +63,7 @@ public class MyStepdefs {
                 System.out.println("Changing pin for pin: " + eachPin);
             } else {
                 System.out.println("Can't change pin more ofter that twice a day");
+                break;
             }
             counter++;
         }
